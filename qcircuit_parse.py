@@ -27,12 +27,12 @@ GATES = [
     'ccz'
 ]
 
-pdf = pdfquery.PDFQuery("Circuits.pdf")
+pdf = pdfquery.PDFQuery("examples/pdf/Circuits.pdf")
 pdf.load()
 
-pdf.tree.write('readable.xml', pretty_print=True)
+pdf.tree.write('examples/pdf/readable.xml', pretty_print=True)
 
-tree = etree.parse(open("readable.xml", "r"))
+tree = etree.parse(open("examples/pdf/readable.xml", "r"))
 root = tree.getroot()
 
 wires = {}

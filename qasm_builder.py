@@ -3,7 +3,7 @@ class Builder:
     A class that represents a quantum circuit.
     """
 
-    def __init__(self, num_qubits=1, qasm=None):
+    def __init__(self, num_qubits=1, qasm=None, symbol='Q'):
         """
         Initializes a quantum state with the given parameters.
 
@@ -12,6 +12,7 @@ class Builder:
         :raises: ValueError
         """
         self.num_qubits = num_qubits
+        self.symbol = symbol
 
         if qasm is None:
             self.qasm = f'OPENQASM 2.0;\ninclude "qelib1.inc";\nqreg {self.symbol}[{num_qubits}];\ncreg c[{num_qubits}];'
@@ -28,10 +29,10 @@ class Builder:
         :return: The full qasm after the operation.
         """
         if qubit:
-            print("barrier ({0})".format(qubit), end='')
+            print("barrier ({0})".format(qubit))
             self.qasm = self.qasm + f'\nbarrier {self.symbol}[{qubit}];'
         else:
-            print("barrier ({0})".format(self.symbol), end='')
+            print("barrier ({0})".format(self.symbol))
             self.qasm = self.qasm + f'\nbarrier {self.symbol};'
         return self
 
@@ -42,7 +43,7 @@ class Builder:
         :param qubit: The target qubit.
         :return: The full qasm after the operation.
         """
-        print("x ({0})".format(qubit), end='')
+        print("x ({0})".format(qubit))
         self.qasm = self.qasm + f'\nx {self.symbol}[{qubit}];'
         return self
 
@@ -53,7 +54,7 @@ class Builder:
         :param qubit: The target qubit.
         :return: The full qasm after the operation.
         """
-        print("y ({0})".format(qubit), end='')
+        print("y ({0})".format(qubit))
         self.qasm = self.qasm + f'\ny {self.symbol}[{qubit}];'
         return self
 
@@ -64,7 +65,7 @@ class Builder:
         :param qubit: The target qubit.
         :return: The full qasm after the operation.
         """
-        print("z ({0})".format(qubit), end='')
+        print("z ({0})".format(qubit))
         self.qasm = self.qasm + f'\nz {self.symbol}[{qubit}];'
         return self
 
@@ -78,7 +79,7 @@ class Builder:
         :param qubit: The target qubit.
         :return: The full qasm after the operation.
         """
-        print("u1({1}) ({0})".format(qubit, lamb), end='')
+        print("u1({1}) ({0})".format(qubit, lamb))
         self.qasm = self.qasm + f'\nu1({lamb}) {self.symbol}[{qubit}];'
         return self
 
@@ -94,7 +95,7 @@ class Builder:
         :param qubit: The target qubit.
         :return: The full qasm after the operation.
         """
-        print("u3({1}, {2}, {3}) ({0})".format(qubit, theta, phi, lamb), end='')
+        print("u3({1}, {2}, {3}) ({0})".format(qubit, theta, phi, lamb))
         self.qasm = self.qasm + f'\nu3({theta},{phi},{lamb}) {self.symbol}[{qubit}];'
         return self
 
@@ -105,7 +106,7 @@ class Builder:
         :param qubit: The target qubit.
         :return: The full qasm after the operation.
         """
-        print("s ({0})".format(qubit), end='')
+        print("s ({0})".format(qubit))
         self.qasm = self.qasm + f'\ns {self.symbol}[{qubit}];'
         return self
 
@@ -116,7 +117,7 @@ class Builder:
         :param qubit: The target qubit.
         :return: The full qasm after the operation.
         """
-        print("sdg ({0})".format(qubit), end='')
+        print("sdg ({0})".format(qubit))
         self.qasm = self.qasm + f'\nsdg {self.symbol}[{qubit}];'
         return self
 
@@ -129,7 +130,7 @@ class Builder:
         :param source: The target qubit.
         :return: The full qasm after the opeation.
         """
-        print("cx ({0} -> {1})".format(source, target), end='')
+        print("cx ({0} -> {1})".format(source, target))
         self.qasm = self.qasm + f'\ncx {self.symbol}[{source}], {self.symbol}[{target}];'
         return self
 
@@ -140,7 +141,7 @@ class Builder:
         :param qubit: The target qubit.
         :return: The full qasm after the operation.
         """
-        print("h ({0})".format(qubit), end='')
+        print("h ({0})".format(qubit))
         self.qasm = self.qasm + f'\nh {self.symbol}[{qubit}];'
         return self
 
@@ -152,7 +153,7 @@ class Builder:
         :return: The result of the measurement.
         """
 
-        print("m ({0})".format(qubit), end='')
+        print("m ({0})".format(qubit))
         self.qasm = self.qasm + f'\nmeasure {self.symbol}[{qubit}] -> c[{qubit}];'
         return self
 
