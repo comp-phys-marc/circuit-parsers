@@ -143,11 +143,25 @@ class Builder:
         source qubit as controller.
 
         :param source: The source qubit.
-        :param source: The target qubit.
+        :param target: The target qubit.
         :return: The full qasm after the opeation.
         """
         print("cx ({0} -> {1})".format(source, target))
         self.qasm = self.qasm + f'\ncx {self.symbol}[{source}], {self.symbol}[{target}];'
+        return self
+
+    def ccx(self, source_one, source_two, target):
+        """
+        Performs a multiply controlled X gate on the target qubit with the
+        source qubits as controllers.
+
+        :param source_one: The first source qubit.
+        :param source_two: The second source qubit.
+        :param target: The target qubit.
+        :return: The full qasm after the opeation.
+        """
+        print("ccx ({0},{1} -> {2})".format(source_one, source_two, target))
+        self.qasm = self.qasm + f'\nccx {self.symbol}[{source_one}], {self.symbol}[{source_two}], {self.symbol}[{target}];'
         return self
 
     def h(self, qubit):
