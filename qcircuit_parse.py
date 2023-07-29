@@ -149,4 +149,3 @@ for wire, gates in wires.items():
             getattr(builder, 'custom_gate')(name, list(wires.keys()).index(wire))
 
 builder.print()
-print(controls)
