@@ -61,13 +61,21 @@ for element in root.iter(tag=etree.Element):
             wires[wire].append({'name': element.text.strip().lower(), 'index': element.attrib['x0']})
             # sort the wire's gates by x index
             wires[wire] = sorted(wires[wire], key=itemgetter('index'))
-
-qasm = ''
+        else:
+            wires[wire].append({'name': 'custom:' + element.text.strip().lower(), 'index': element.attrib['x0']})
+            # sort the wire's gates by x index
+            wires[wire] = sorted(wires[wire], key=itemgetter('index'))
 
 builder = Builder()
 
 for wire, gates in wires.items():
     for gate in gates:
-        getattr(builder, gate['name'])(list(wires.keys()).index(wire))
+        if not 'custom' in gate['name']:
+            # This is a gate in the standard library
+            getattr(builder, gate['name'])(list(wires.keys()).index(wire))
+        else:
+            # This is a custom gate
+            name = gate['name'].split(':')[1]
+            getattr(builder, 'custom_gate')(name, list(wires.keys()).index(wire))
 
-print(builder.qasm)
+builder.print()

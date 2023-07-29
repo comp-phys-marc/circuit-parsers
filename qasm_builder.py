@@ -3,7 +3,7 @@ class Builder:
     A class that represents a quantum circuit.
     """
 
-    def __init__(self, num_qubits=1, qasm=None, symbol='Q'):
+    def __init__(self, num_qubits=1, qasm=None, symbol='q'):
         """
         Initializes a quantum state with the given parameters.
 
@@ -13,13 +13,16 @@ class Builder:
         """
         self.num_qubits = num_qubits
         self.symbol = symbol
-
-        if qasm is None:
-            self.qasm = f'OPENQASM 2.0;\ninclude "qelib1.inc";\nqreg {self.symbol}[{num_qubits}];\ncreg c[{num_qubits}];'
-        else:
-            self.qasm = qasm
+        self.header = 'OPENQASM 2.0;\ninclude "qelib1.inc";\n'
+        self.regs = f'qreg {self.symbol}[{num_qubits}];\ncreg c[{num_qubits}];'
+        self.qasm = ""
+        self.custom_gates = ""
 
         self.print()
+
+    @property
+    def program(self):
+        return self.header + self.custom_gates + self.qasm
 
     def barrier(self, qubit=None):
         """
@@ -34,6 +37,19 @@ class Builder:
         else:
             print("barrier ({0})".format(self.symbol))
             self.qasm = self.qasm + f'\nbarrier {self.symbol};'
+        return self
+
+    def custom_gate(self, name, qubit):
+        """
+        Registers a custom gate on the target qubit.
+
+        :param qubit: The target qubit
+        :return: The full wasm after the operation.
+        """
+
+        self.custom_gates += f'gate {name} qargs' + '\n{\n//TODO: replace me!\nU(0,0,0) qargs;\n}\n'
+        print("{1} ({0})".format(qubit, name))
+        self.qasm = self.qasm + f'\n{name} {self.symbol}[{qubit}];'
         return self
 
     def x(self, qubit):
@@ -162,4 +178,4 @@ class Builder:
         Prints the full qasm.
         """
         print("\nIBMQX QASM:")
-        print(self.qasm)
+        print(self.program)
