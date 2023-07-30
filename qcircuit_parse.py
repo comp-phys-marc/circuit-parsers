@@ -219,6 +219,12 @@ def process_gates(gates, wire, delegating=False):
                             to_del += to_del_subs
                             delegated[delegate] = del_gates
 
+                            if gate in delegated.keys():
+                                to_del_subs, del_gates = process_gates(delegated[gate][1:], gate['wire'])
+                                to_del.append(gate)
+                                to_del += to_del_subs
+                                delegated[gate] = del_gates
+
                 if not found and not delegating:
                     # otherwise we delegate this
                     gate.wire = wire
@@ -236,6 +242,7 @@ def process_gates(gates, wire, delegating=False):
 
 
 while len(delegated.keys()) > 0 or w < len(wires.keys()):
+    print(delegated)
     if not w >= len(list(wires.keys())):
         wire = list(wires.keys())[w]
         gates = wires[wire]
