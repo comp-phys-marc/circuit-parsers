@@ -1,8 +1,4 @@
 /Users/marcusedwards/anaconda3/envs/qcircuit/bin/python /Users/marcusedwards/Documents/Projects/circuit-parsers/qcircuit_parse.py
-Traceback (most recent call last):
-  File "/Users/marcusedwards/Documents/Projects/circuit-parsers/qcircuit_parse.py", line 260, in <module>
-    del delegated[delegate]
-KeyError: Gate(name='cx', index='233.274', source='633.08', source_index=None, ready=True, wire='633.08')
 LTPage -
      - (0, 0)
 LTTextLineHorizontal - None - (146.72, 651.898)
@@ -83,4 +79,21 @@ x (1)
 u † (2)
 cx (1 -> 0)
 
-Process finished with exit code 1
+IBMQX QASM:
+OPENQASM 2.0;
+include "qelib1.inc";
+gate u † qargs
+{
+//TODO: replace me!
+U(0,0,0) qargs;
+}
+
+h q[0];
+z q[0];
+h q[0];
+cx q[1], q[2];
+x q[1];
+u † q[2];
+cx q[1], q[0];
+
+Process finished with exit code 0

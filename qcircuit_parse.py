@@ -242,7 +242,6 @@ def process_gates(gates, wire, delegating=False):
 
 
 while len(delegated.keys()) > 0 or w < len(wires.keys()):
-    print(delegated)
     if not w >= len(list(wires.keys())):
         wire = list(wires.keys())[w]
         gates = wires[wire]
