@@ -212,13 +212,18 @@ def process_gates(gates, wire, delegating=False):
                                 and delegate['ready'] == True:
 
                             found = True
+
+                            # apply the gate
                             getattr(builder, gate['name'])(list(wires.keys()).index(gate['source']),
                                                            list(wires.keys()).index(wire))
+
+                            # apply gates on the source wire that were delegated
                             to_del_subs, del_gates = process_gates(delegated[delegate][1:], delegate['wire'])
                             to_del.append(delegate)
                             to_del += to_del_subs
                             delegated[delegate] = del_gates
 
+                            # apply gate on the target wire that were delegated
                             if gate in delegated.keys():
                                 to_del_subs, del_gates = process_gates(delegated[gate][1:], gate['wire'])
                                 to_del.append(gate)
@@ -241,12 +246,14 @@ def process_gates(gates, wire, delegating=False):
     return to_del, gates
 
 
+# while we have gates to process
 while len(delegated.keys()) > 0 or w < len(wires.keys()):
     if not w >= len(list(wires.keys())):
         wire = list(wires.keys())[w]
         gates = wires[wire]
         to_del = []
 
+        # process the wires in ascending order
         to_del_plus, gates = process_gates(gates, wire)
         to_del += to_del_plus
         wires[wire] = gates
