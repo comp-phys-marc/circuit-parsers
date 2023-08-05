@@ -164,6 +164,15 @@ class Builder:
         self.qasm = self.qasm + f'\nccx {self.symbol}[{source_one}], {self.symbol}[{source_two}], {self.symbol}[{target}];'
         return self
 
+    def I(self, qubit):
+        """
+        Performs an identity on the target qubit.
+
+        :param qubit: The target qubit.
+        :return: The full qasm after the operation.
+        """
+        return self
+
     def h(self, qubit):
         """
         Performs a Hadamard gate on the target qubit.
