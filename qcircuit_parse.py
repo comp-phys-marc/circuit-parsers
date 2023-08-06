@@ -4,7 +4,7 @@ from lxml import etree
 from operator import itemgetter
 from copy import deepcopy
 from dataclasses import dataclass
-from qasm_builder import Builder
+from circuit_builder import Builder
 from typing import Optional
 
 
@@ -12,9 +12,9 @@ GATES = [
     'x',
     'y',
     'z',
-    'u1',
-    'u2',
-    'u3',
+    # 'u1',
+    # 'u2',
+    # 'u3',
     's',
     'sdg',
     'h',

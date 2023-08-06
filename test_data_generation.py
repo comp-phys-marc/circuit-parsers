@@ -1,10 +1,12 @@
 from qcircuit_parse import parse_circuit, Gate, GATES
-from qasm_builder import Builder
+from circuit_builder import Builder
 
 from pdf2image import convert_from_path
 
+from math import floor
 from copy import deepcopy
 from itertools import permutations, combinations
+from functools import reduce
 
 
 def convert_pdf_to_image(path_to_pdf="examples/pdf/Circuits.pdf", path_to_image="examples/pdf/Circuits.jpg"):
@@ -19,13 +21,14 @@ def convert_pdf_to_image(path_to_pdf="examples/pdf/Circuits.pdf", path_to_image=
         page.save(path_to_image, 'JPEG')
 
 
-def generate_pdfs(circuit_depth=5, qubits=3):
+def generate_pdfs(circuit_depth=2, qubits=2, folder="examples/gen"):
     """
     Generates LaTeX, pdfs and images for the permutations of supported gates on the
     given number of qubits with the provided circuit depth.
 
     :param circuit_depth: The depth of the circuits to generate.
     :param qubits: The number of qubits in the circuits to generate.
+    :param folder: The folder to hold the outputs.
     """
     circuits = []
     # place CNOTs
@@ -40,6 +43,7 @@ def generate_pdfs(circuit_depth=5, qubits=3):
                 circuit = [[Gate(name='I', index=i) for i in range(circuit_depth)] for wire in range(qubits)]
                 # add CNOTs to circuit
                 for k, source_index in enumerate(combination):
+                    # TODO: support CNOTs from non-adjacent wires
                     if permutation[k] == 'up':
                         cnot = Gate(
                             name='cx',
@@ -60,7 +64,9 @@ def generate_pdfs(circuit_depth=5, qubits=3):
                     circuit[cnot['target']][cnot['index']] = cnot
 
                 # permutations of single qubit gates
-                single_qubit_gates = len(filter(lambda gate: gate['name'] == 'I', reduce(lambda x, y: x + y, circuit)))
+                single_qubit_gates = len(list(
+                    filter(lambda gate: gate['name'] == 'I', reduce(lambda x, y: x + y, circuit))
+                ))
 
                 def place_single_qubit_gate(gate, index, circuit):
                     """
@@ -85,15 +91,43 @@ def generate_pdfs(circuit_depth=5, qubits=3):
                             wire += 1
                             i = 0
                     if total >= index:
-                        gate['index'] = prev[1]
+                        gate.index = prev[1]
                         circuit[prev[0]][prev[1]] = gate
 
                     return circuit
 
-                for permutation in permutations(filter(lambda g: g != 'cx', GATES), single_qubit_gates):
+                gts = list(filter(lambda g: g != 'cx', GATES))
+                for permutation in permutations(gts, single_qubit_gates):
                     # final circuit lists
                     circuit = deepcopy(circuit)
                     for pg_index, permuted_gate in enumerate(permutation):
                         # add a single qubit gate to the circuit
                         circuit = place_single_qubit_gate(Gate(name=permuted_gate), pg_index, circuit)
                     circuits.append(circuit)
+
+    for num, circuit in enumerate(circuits):
+        builder = Builder()
+        wire = 0
+        i = 0
+        while wire < len(circuit) and i < len(circuit[0]):
+            gate = circuit[wire][i]
+            if 'cx' not in gate['name']:
+                getattr(builder, gate['name'])(wire)
+            elif gate['source'] == wire:
+                builder.tex_cx_source('up' if gate['source'] < gate['target'] else 'down')
+            elif gate['target'] == wire:
+                builder.tex_cx_target()
+            i += 1
+            if i >= len(circuit[0]):
+                builder.new_tex_wire()
+                wire += 1
+                i = 0
+
+        builder.print_tex_file(f"{folder}/circuit_{num}.tex")
+        # TODO: automate this step. For now use PDfLaTeX and LaTeX Workshop.
+        input("Have you converted the .tex to a .pdf? If so, press a key.")
+        convert_pdf_to_image(f"{folder}/circuit_{num}.pdf", f"{folder}/circuit_{num}.jpg")
+
+
+if __name__ == "__main__":
+    generate_pdfs()

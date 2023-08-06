@@ -13,12 +13,38 @@ class Builder:
         """
         self.num_qubits = num_qubits
         self.symbol = symbol
+
         self.header = 'OPENQASM 2.0;\ninclude "qelib1.inc";\n'
         self.regs = f'qreg {self.symbol}[{num_qubits}];\ncreg c[{num_qubits}];'
         self.qasm = ""
         self.custom_gates = ""
 
+        self.tex_header = """
+\\documentclass{article}
+\\usepackage{qcircuit}
+\\begin{document}
+\\Qcircuit @C=1em @R=.7em {
+        """
+        self.tex_footer = """
+}
+\\end{document}
+        """
+        self.tex_circuit = ""
+
         self.print()
+
+    def new_tex_wire(self):
+        """
+        Increments the wire in the LaTeX circuit.
+
+        :return: self
+        """
+        self.tex_circuit += ' \\\\ \n'
+        return self
+
+    @property
+    def tex(self):
+        return self.tex_header + self.tex_circuit + self.tex_footer
 
     @property
     def program(self):
@@ -50,6 +76,7 @@ class Builder:
         self.custom_gates += f'gate {name} qargs' + '\n{\n//TODO: replace me!\nU(0,0,0) qargs;\n}\n'
         print("{1} ({0})".format(qubit, name))
         self.qasm = self.qasm + f'\n{name} {self.symbol}[{qubit}];'
+        self.tex_circuit += ' & \\gate{{0}}'.format(name)
         return self
 
     def x(self, qubit):
@@ -61,6 +88,7 @@ class Builder:
         """
         print("x ({0})".format(qubit))
         self.qasm = self.qasm + f'\nx {self.symbol}[{qubit}];'
+        self.tex_circuit += ' & \\gate{X}'
         return self
 
     def y(self, qubit):
@@ -72,6 +100,7 @@ class Builder:
         """
         print("y ({0})".format(qubit))
         self.qasm = self.qasm + f'\ny {self.symbol}[{qubit}];'
+        self.tex_circuit += ' & \\gate{Y}'
         return self
 
     def z(self, qubit):
@@ -83,6 +112,7 @@ class Builder:
         """
         print("z ({0})".format(qubit))
         self.qasm = self.qasm + f'\nz {self.symbol}[{qubit}];'
+        self.tex_circuit += ' & \\gate{Z}'
         return self
 
     def u1(self, lamb, qubit):
@@ -97,6 +127,7 @@ class Builder:
         """
         print("u1({1}) ({0})".format(qubit, lamb))
         self.qasm = self.qasm + f'\nu1({lamb}) {self.symbol}[{qubit}];'
+        self.tex_circuit += ' & \\gate{U1({0})}'.format(lamb)
         return self
 
     def u3(self, theta, phi, lamb, qubit):
@@ -113,6 +144,7 @@ class Builder:
         """
         print("u3({1}, {2}, {3}) ({0})".format(qubit, theta, phi, lamb))
         self.qasm = self.qasm + f'\nu3({theta},{phi},{lamb}) {self.symbol}[{qubit}];'
+        self.tex_circuit += ' & \\gate{U3({0}, {1}, {2})}'.format(theta, phi, lamb)
         return self
 
     def s(self, qubit):
@@ -124,6 +156,7 @@ class Builder:
         """
         print("s ({0})".format(qubit))
         self.qasm = self.qasm + f'\ns {self.symbol}[{qubit}];'
+        self.tex_circuit += ' & \\gate{S}'
         return self
 
     def sdg(self, qubit):
@@ -135,6 +168,31 @@ class Builder:
         """
         print("sdg ({0})".format(qubit))
         self.qasm = self.qasm + f'\nsdg {self.symbol}[{qubit}];'
+        self.tex_circuit += ' & \\gate{S^\\dagger}'
+        return self
+
+    def tex_cx_source(self,  direction):
+        """
+        Adds a ctrl to the LaTeX circuit with the provided directionality.
+
+        TODO: support CNOTs from non-adjacent wires.
+
+        :param: Whether the target is in the positive (up) or negative (down) direction from the source.
+        :return: self
+        """
+        if direction == 'up':
+            self.tex_circuit += ' & \\ctrl{1}'
+        else:
+            self.tex_circuit += ' & \\ctrl{-1}'
+        return self
+
+    def tex_cx_target(self):
+        """
+        Adds a CNOT target to the circuit.
+
+        :return: self
+        """
+        self.tex_circuit += ' & \\targ'
         return self
 
     def cx(self, source, target):
@@ -144,7 +202,7 @@ class Builder:
 
         :param source: The source qubit.
         :param target: The target qubit.
-        :return: The full qasm after the opeation.
+        :return: The full qasm after the operation.
         """
         print("cx ({0} -> {1})".format(source, target))
         self.qasm = self.qasm + f'\ncx {self.symbol}[{source}], {self.symbol}[{target}];'
@@ -158,7 +216,7 @@ class Builder:
         :param source_one: The first source qubit.
         :param source_two: The second source qubit.
         :param target: The target qubit.
-        :return: The full qasm after the opeation.
+        :return: The full qasm after the operation.
         """
         print("ccx ({0},{1} -> {2})".format(source_one, source_two, target))
         self.qasm = self.qasm + f'\nccx {self.symbol}[{source_one}], {self.symbol}[{source_two}], {self.symbol}[{target}];'
@@ -191,7 +249,6 @@ class Builder:
         :param qubit: The target qubit.
         :return: The result of the measurement.
         """
-
         print("m ({0})".format(qubit))
         self.qasm = self.qasm + f'\nmeasure {self.symbol}[{qubit}] -> c[{qubit}];'
         return self
@@ -202,3 +259,26 @@ class Builder:
         """
         print("\nIBMQX QASM:")
         print(self.program)
+
+    def print_qasm_file(self, file_name):
+        """
+        Prints the QASM to a file.
+
+        :param file_name: The name of the file to print.
+        """
+        file = open(file_name, 'w+')
+        file.write(self.program)
+        file.flush()
+        file.close()
+
+    def print_tex_file(self, file_name):
+        """
+        Prints the LaTeX to a file.
+
+        :param file_name: The name of the file to print.
+        """
+        file = open(file_name, 'w+')
+        file.write(self.tex)
+        file.flush()
+        file.close()
+
