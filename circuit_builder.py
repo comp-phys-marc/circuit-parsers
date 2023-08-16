@@ -24,9 +24,8 @@ class Builder:
 \\usepackage{qcircuit}
 \\begin{document}
 \\Qcircuit @C=1em @R=.7em {
-        """
-        self.tex_footer = """
-}
+"""
+        self.tex_footer = """}
 \\end{document}
         """
         self.tex_circuit = ""

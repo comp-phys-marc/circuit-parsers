@@ -80,11 +80,11 @@ def generate_pdfs(circuit_depth=2, qubits=2, folder="examples/gen"):
                     """
                     wire = 0
                     i = 0
-                    total = 0
+                    total = -1
                     prev = (0, 0)
                     while wire < len(circuit) and i < len(circuit[0]) and total < index:
                         prev = (wire, i)
-                        if circuit[wire][i]['name'] == 'I':
+                        if circuit[wire][i]['name'] in list(filter(lambda g: g != 'cx', GATES)):
                             total += 1
                         i += 1
                         if i >= len(circuit[0]):
