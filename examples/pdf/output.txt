@@ -1,14 +1,20 @@
-/Users/marcusedwards/anaconda3/bin/python3 /Users/marcusedwards/Documents/Projects/qeelib/examples/pdf_parsing/qcircuit_parse.py
+/Users/marcusedwards/anaconda3/envs/qcircuit/bin/python /Users/marcusedwards/Documents/Projects/circuit-parsers/qcircuit_parse.py
 LTPage -
      - (0, 0)
 LTTextLineHorizontal - None - (146.72, 651.898)
 LTTextBoxHorizontal - H  - (146.72, 651.898)
-LTTextLineHorizontal - None - (196.727, 651.898)
-LTTextBoxHorizontal - H  - (196.727, 651.898)
+LTTextLineHorizontal - None - (148.775, 633.08)
+LTTextBoxHorizontal - •  - (148.775, 633.08)
 LTTextLineHorizontal - None - (172.512, 651.898)
 LTTextBoxHorizontal - Z  - (172.512, 651.898)
 LTTextLineHorizontal - None - (171.751, 632.139)
 LTTextBoxHorizontal - X  - (171.751, 632.139)
+LTTextLineHorizontal - None - (198.201, 651.898)
+LTTextBoxHorizontal - H  - (198.201, 651.898)
+LTTextLineHorizontal - None - (196.727, 610.729)
+LTTextBoxHorizontal - U †  - (196.727, 610.729)
+LTTextLineHorizontal - None - (233.274, 633.08)
+LTTextBoxHorizontal - •  - (233.274, 633.08)
 LTTextLineHorizontal - None - (303.133, 87.432)
 LTTextBoxHorizontal - 1  - (303.133, 87.432)
 LTLine - None - (143.731, 663.628)
@@ -21,42 +27,73 @@ LTLine - None - (169.523, 650.842)
 LTLine - None - (169.523, 650.842)
 LTLine - None - (183.014, 650.842)
 LTLine - None - (158.799, 657.235)
-LTLine - None - (193.738, 663.628)
-LTLine - None - (193.738, 650.842)
-LTLine - None - (193.738, 650.842)
-LTLine - None - (208.806, 650.842)
+LTLine - None - (195.212, 663.628)
+LTLine - None - (195.212, 650.842)
+LTLine - None - (195.212, 650.842)
+LTLine - None - (210.281, 650.842)
 LTLine - None - (183.014, 657.235)
-LTLine - None - (208.806, 657.235)
+LTLine - None - (210.281, 657.235)
+LTLine - None - (231.88, 657.235)
+LTLine - None - (235.765, 653.35)
+LTCurve - None - (231.78, 657.235)
+LTCurve - None - (231.78, 653.25)
+LTCurve - None - (235.765, 653.25)
+LTCurve - None - (235.765, 657.235)
+LTLine - None - (221.718, 657.235)
+LTLine - None - (151.265, 620.976)
 LTLine - None - (133.768, 637.476)
 LTLine - None - (168.762, 643.868)
 LTLine - None - (168.762, 631.083)
 LTLine - None - (168.762, 631.083)
 LTLine - None - (183.775, 631.083)
-LTLine - None - (151.265, 637.476)
+LTLine - None - (152.483, 637.476)
 LTLine - None - (183.775, 637.476)
-LTLine - None - (201.272, 637.476)
+LTLine - None - (202.746, 637.476)
+LTLine - None - (235.765, 638.555)
+LTLine - None - (221.718, 637.476)
+LTLine - None - (147.38, 616.892)
+LTLine - None - (151.265, 613.007)
+LTCurve - None - (147.28, 616.892)
+LTCurve - None - (147.28, 612.907)
+LTCurve - None - (151.265, 612.907)
+LTCurve - None - (151.265, 616.892)
+LTLine - None - (133.768, 616.891)
+LTLine - None - (155.35, 616.891)
+LTLine - None - (193.738, 624.109)
+LTLine - None - (193.738, 609.673)
+LTLine - None - (193.738, 609.673)
+LTLine - None - (211.755, 609.673)
+LTLine - None - (176.268, 616.891)
+LTLine - None - (211.755, 616.891)
+LTLine - None - (221.718, 616.891)
 
 IBMQX QASM:
 OPENQASM 2.0;
 include "qelib1.inc";
-qreg q[3];
-creg c[3];
 
 h (0)
-
 z (0)
-
 h (0)
-
+cx (1 -> 2)
 x (1)
+u † (2)
+cx (1 -> 0)
 
+IBMQX QASM:
 OPENQASM 2.0;
 include "qelib1.inc";
-qreg q[3];
-creg c[3];
+gate u † qargs
+{
+//TODO: replace me!
+U(0,0,0) qargs;
+}
+
 h q[0];
 z q[0];
 h q[0];
+cx q[1], q[2];
 x q[1];
+u † q[2];
+cx q[1], q[0];
 
 Process finished with exit code 0
