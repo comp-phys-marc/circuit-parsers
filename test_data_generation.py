@@ -97,6 +97,8 @@ def generate_pdfs(circuit_depth=2, qubits=2, folder="examples/training/gen"):
                     return circuit
 
                 gts = list(filter(lambda g: g != 'cx', GATES))
+                # rewrite this line so the list isn't built out in its entirety prior to looping
+                # but rather is procedurally generated.
                 for permutation in permutations(gts, single_qubit_gates):
                     # final circuit lists
                     circuit = deepcopy(circuit)
