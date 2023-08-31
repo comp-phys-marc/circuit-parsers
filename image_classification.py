@@ -9,7 +9,7 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.models import Sequential
 
-data_dir = pathlib.Path('./examples/training')
+data_dir = pathlib.Path('./examples/gen')
 
 image_count = len(list(data_dir.glob('*/*.jpg')))
 print(image_count)
@@ -45,7 +45,7 @@ num_classes = len(class_names)
 # TODO: solve for model that is well suited to learning quantum circuits
 
 model = Sequential([
-    layers.Rescaling(1./255, input_shape=(180,180, 3)),
+    layers.Rescaling(1./255, input_shape=(180, 180, 3)),
     layers.Conv2D(16, 3, padding='same', activation='relu'),
     layers.MaxPooling2D(),
     layers.Conv2D(32, 3, padding='same', activation='relu'),

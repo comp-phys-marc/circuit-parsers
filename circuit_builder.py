@@ -238,7 +238,7 @@ class Builder:
         :return: The full qasm after the operation.
         """
         print("h ({0})".format(qubit))
-        self.qasm = self.qasm + f'\nh {self.symbol}[{qubit}];']
+        self.qasm = self.qasm + f'\nh {self.symbol}[{qubit}];'
         self.tex_circuit += ' & \\gate{H}'
         return self
 

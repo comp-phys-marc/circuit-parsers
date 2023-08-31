@@ -1,3 +1,5 @@
+import os
+
 from qcircuit_parse import parse_circuit, Gate, GATES
 from circuit_builder import Builder
 
@@ -21,7 +23,7 @@ def convert_pdf_to_image(path_to_pdf="examples/pdf/Circuits.pdf", path_to_image=
         page.save(path_to_image, 'JPEG')
 
 
-def generate_pdfs(circuit_depth=2, qubits=2, folder="examples/training/gen"):
+def generate_pdfs(circuit_depth=2, qubits=2, folder="examples/gen"):
     """
     Generates LaTeX, pdfs and images for the permutations of supported gates on the
     given number of qubits with the provided circuit depth.
@@ -128,7 +130,8 @@ def generate_pdfs(circuit_depth=2, qubits=2, folder="examples/training/gen"):
         builder.print_tex_file(f"{folder}/circuit_{num}.tex")
         # TODO: automate this step. For now use PDfLaTeX and LaTeX Workshop.
         input("Have you converted the .tex to a .pdf? If so, press a key.")
-        convert_pdf_to_image(f"{folder}/circuit_{num}.pdf", f"{folder}/circuit_{num}.jpg")
+        os.mkdir(f"{folder}/{num}")
+        convert_pdf_to_image(f"{folder}/circuit_{num}.pdf", f"{folder}/{num}/circuit_{num}.jpg")
 
 
 if __name__ == "__main__":
