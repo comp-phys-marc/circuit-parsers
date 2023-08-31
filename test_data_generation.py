@@ -21,7 +21,7 @@ def convert_pdf_to_image(path_to_pdf="examples/pdf/Circuits.pdf", path_to_image=
         page.save(path_to_image, 'JPEG')
 
 
-def generate_pdfs(circuit_depth=2, qubits=2, folder="examples/gen"):
+def generate_pdfs(circuit_depth=2, qubits=2, folder="examples/training/gen"):
     """
     Generates LaTeX, pdfs and images for the permutations of supported gates on the
     given number of qubits with the provided circuit depth.

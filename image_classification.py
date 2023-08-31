@@ -9,17 +9,13 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.models import Sequential
 
-# TODO: replace flowers with quantum circuits
-
-dataset_url = "https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz"
-data_dir = tf.keras.utils.get_file('flower_photos', origin=dataset_url, untar=True)
-data_dir = pathlib.Path(data_dir)
+data_dir = pathlib.Path('./examples/training')
 
 image_count = len(list(data_dir.glob('*/*.jpg')))
 print(image_count)
 
-roses = list(data_dir.glob('roses/*'))
-PIL.Image.open(str(roses[0]))
+circuits = list(data_dir.glob('*/*.jpg'))
+PIL.Image.open(str(circuits[0]))
 
 # Training split
 train_ds = tf.keras.utils.image_dataset_from_directory(
