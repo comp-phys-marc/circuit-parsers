@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  10 SEP 2023 12:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  10 SEP 2023 16:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -290,13 +290,13 @@ Package xypdf Info: Line width: 0.39998pt on input line 5.
 Here is how much of TeX's memory you used:
  12446 strings out of 492616
  226056 string characters out of 6129482
- 555898 words of memory out of 5000000
+ 555982 words of memory out of 5000000
  16376 multiletter control sequences out of 15000+600000
  533211 words of font info for 29 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,24n,63p,1492b,986s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on /Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_8.pdf (1 page, 35171 bytes).
+Output written on /Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_8.pdf (1 page, 33898 bytes).
 PDF statistics:
  20 PDF objects out of 1000 (max. 8388607)
  13 compressed objects within 1 object stream

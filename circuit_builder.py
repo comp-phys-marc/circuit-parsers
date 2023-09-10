@@ -196,7 +196,7 @@ class Builder:
         :return: the command for a random paragraph of text.
         """
         n = random.randint(0, 10)
-        return f'\n\\lipsum[{n}-{n+1}]\n'
+        return f'\n\\lipsum[{n}-{n}]\n'
 
     def tex_cx_source(self,  direction):
         """

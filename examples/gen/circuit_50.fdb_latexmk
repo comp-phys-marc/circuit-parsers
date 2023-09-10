@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1694375943 "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_50.tex" "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_50.pdf" "circuit_50" 1694375944
-  "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_50.aux" 1694375944 8 a94a2480d3289e625eea47cd1b285758 ""
-  "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_50.tex" 1694375943 294 61bc81b57c1b203b73aec0fae8f5c16b ""
-  "/dev/null" 1694375937 0 d41d8cd98f00b204e9800998ecf8427e ""
+["pdflatex"] 1694389314 "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_50.tex" "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_50.pdf" "circuit_50" 1694389316
+  "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_50.aux" 1694389316 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_50.tex" 1694389314 294 c04f985f54904264e29c7dddbe82a799 ""
+  "/dev/null" 1694389227 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/xypic/xyatip10.tfm" 1381187214 608 50246cc71b0635b0ba0a5c10a0bf4257 ""
@@ -40,11 +40,11 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1557342064 3277517 23507ed665b4dd9046f0f2a94bbef2be ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1557342086 4259635 562fc36ec496993777a6c428d8bfb811 ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "circuit_50.aux" 1694375944 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
-  "circuit_50.tex" 1694375943 294 61bc81b57c1b203b73aec0fae8f5c16b ""
+  "circuit_50.aux" 1694389316 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "circuit_50.tex" 1694389314 294 c04f985f54904264e29c7dddbe82a799 ""
   (generated)
-  "circuit_50.log"
-  "circuit_50.pdf"
   "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_50.log"
+  "circuit_50.log"
   "circuit_50.aux"
   "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_50.pdf"
+  "circuit_50.pdf"

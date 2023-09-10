@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1694375904 "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_45.tex" "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_45.pdf" "circuit_45" 1694375905
-  "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_45.aux" 1694375905 8 a94a2480d3289e625eea47cd1b285758 ""
-  "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_45.tex" 1694375904 302 48f1eb9cf4bc7aa2ec0a09ac49d422e7 ""
-  "/dev/null" 1694375893 0 d41d8cd98f00b204e9800998ecf8427e ""
+["pdflatex"] 1694389272 "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_45.tex" "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_45.pdf" "circuit_45" 1694389273
+  "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_45.aux" 1694389273 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_45.tex" 1694389271 302 ff814ce096d4b7f59e33ee0dd9057e4e ""
+  "/dev/null" 1694389227 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/xypic/xyatip10.tfm" 1381187214 608 50246cc71b0635b0ba0a5c10a0bf4257 ""
@@ -41,11 +41,11 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1557342064 3277517 23507ed665b4dd9046f0f2a94bbef2be ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1557342086 4259635 562fc36ec496993777a6c428d8bfb811 ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "circuit_45.aux" 1694375905 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
-  "circuit_45.tex" 1694375904 302 48f1eb9cf4bc7aa2ec0a09ac49d422e7 ""
+  "circuit_45.aux" 1694389273 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "circuit_45.tex" 1694389271 302 ff814ce096d4b7f59e33ee0dd9057e4e ""
   (generated)
   "circuit_45.log"
+  "circuit_45.aux"
+  "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_45.log"
   "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_45.pdf"
   "circuit_45.pdf"
-  "/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_45.log"
-  "circuit_45.aux"
