@@ -1,4 +1,5 @@
 import os
+import pathlib
 
 from qcircuit_parse import parse_circuit, Gate, GATES
 from circuit_builder import Builder
@@ -110,7 +111,7 @@ def generate_pdfs(circuit_depth=2, qubits=2, folder="examples/gen"):
                     circuits.append(circuit)
 
     for num, circuit in enumerate(circuits):
-        builder = Builder()
+        builder = Builder(pad=True)
         wire = 0
         i = 0
         while wire < len(circuit) and i < len(circuit[0]):
@@ -130,8 +131,14 @@ def generate_pdfs(circuit_depth=2, qubits=2, folder="examples/gen"):
         builder.print_tex_file(f"{folder}/circuit_{num}.tex")
         # TODO: automate this step. For now use PDfLaTeX and LaTeX Workshop.
         input("Have you converted the .tex to a .pdf? If so, press a key.")
-        os.mkdir(f"{folder}/{num}")
-        convert_pdf_to_image(f"{folder}/circuit_{num}.pdf", f"{folder}/{num}/circuit_{num}.jpg")
+        if not pathlib.Path(f"{folder}/{num}").is_dir():
+            os.mkdir(f"{folder}/{num}")
+            convert_pdf_to_image(f"{folder}/circuit_{num}.pdf", f"{folder}/{num}/circuit_{num}.jpg")
+        else:
+            i = 0
+            while os.path.exists(f"{folder}/{num}/circuit_{num + i}.jpg"):
+                i += 1
+            convert_pdf_to_image(f"{folder}/circuit_{num}.pdf", f"{folder}/{num}/circuit_{num + i}.jpg")
 
 
 if __name__ == "__main__":

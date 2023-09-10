@@ -1,9 +1,12 @@
+import random
+
+
 class Builder:
     """
     A class that represents a quantum circuit.
     """
 
-    def __init__(self, num_qubits=1, qasm=None, symbol='q'):
+    def __init__(self, num_qubits=1, qasm="", symbol='q', pad=False):
         """
         Initializes a quantum state with the given parameters.
 
@@ -13,24 +16,41 @@ class Builder:
         """
         self.num_qubits = num_qubits
         self.symbol = symbol
+        self.pad = pad
 
         self.header = 'OPENQASM 2.0;\ninclude "qelib1.inc";\n'
         self.regs = f'qreg {self.symbol}[{num_qubits}];\ncreg c[{num_qubits}];'
-        self.qasm = ""
+        self.qasm = qasm
         self.custom_gates = ""
 
-        self.tex_header = """
+        if self.pad:
+            self.tex_header = """
+\\documentclass{article}
+\\usepackage{qcircuit}
+\\usepackage{lipsum}  
+\\begin{document}""" + self.tex_random_lipsum() + """
+\\begin{center}
+\\begin{minipage}[c]{1\linewidth}
+\\Qcircuit @C=1em @R=.7em {
+"""
+            self.tex_footer = """}
+\\end{minipage}
+\\end{center}""" + self.tex_random_lipsum() + """
+\\end{document}
+        """
+
+        else:
+            self.tex_header = """
 \\documentclass{article}
 \\usepackage{qcircuit}
 \\begin{document}
 \\Qcircuit @C=1em @R=.7em {
 """
-        self.tex_footer = """}
+            self.tex_footer = """}
 \\end{document}
         """
-        self.tex_circuit = ""
 
-        self.print()
+        self.tex_circuit = ""
 
     def new_tex_wire(self):
         """
@@ -169,6 +189,14 @@ class Builder:
         self.qasm = self.qasm + f'\nsdg {self.symbol}[{qubit}];'
         self.tex_circuit += ' & \\gate{S^\\dagger}'
         return self
+
+    def tex_random_lipsum(self):
+        """
+        Returns a random paragraph of text in LaTeX.
+        :return: the command for a random paragraph of text.
+        """
+        n = random.randint(0, 10)
+        return f'\n\\lipsum[{n}-{n+1}]\n'
 
     def tex_cx_source(self,  direction):
         """
