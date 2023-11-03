@@ -1,10 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  10 SEP 2023 16:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  3 NOV 2023 11:06
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_8.tex
-(/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_8.tex
+**circuit_8.tex
+(./circuit_8.tex
 LaTeX2e <2018-12-01>
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
@@ -22,9 +21,15 @@ File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-) (/usr/local/texlive/2019/texmf-dist/tex/latex/qcircuit/qcircuit.sty
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/qcircuit/qcircuit.sty
 Package: qcircuit 2018/08/14
- (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xy.sty (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing: catcodes, docmode, (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyrecat.tex) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyidioms.tex)
+
+(/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xy.sty
+(/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing:
+catcodes, docmode,
+(/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyrecat.tex)
+(/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyidioms.tex)
 
  Xy-pic version 3.8.9 <2013/10/06>
  Copyright (c) 1991-2013 by Kristoffer H. Rose <krisrose@tug.org> and others
@@ -70,16 +75,24 @@ Loading kernel: messages; fonts; allocations: state,
 \xywrite@=\write3
 \csp@=\count91
 \quotPTK@=\dimen130
- utility macros; pictures: \xy, positions,
+
+utility macros; pictures: \xy, positions,
 \swaptoks@@=\toks16
 \connectobjectbox@@=\box29
  objects,
 \styletoks@=\toks17
- decorations; kernel objects: directionals, circles, text; options; algorithms: directions, edges, connections;  Xy-pic loaded) (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+ decorations;
+kernel objects: directionals, circles, text; options; algorithms: directions,
+edges, connections;  Xy-pic loaded)
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
 )
 Package: xy 2013/10/06 Xy-pic version 3.8.9
- (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xypdf.tex  Xy-pic option: PDF driver v.1.7 loaded)) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xymatrix.tex  Xy-pic option: Matrix feature v.3.14
+
+(/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xypdf.tex
+ Xy-pic option: PDF driver v.1.7 loaded))
+(/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xymatrix.tex
+ Xy-pic option: Matrix feature v.3.14
 \Row=\count92
 \Col=\count93
 \queue@=\toks18
@@ -87,7 +100,13 @@ Package: xy 2013/10/06 Xy-pic version 3.8.9
 \qcount@=\count94
 \qcount@@=\count95
 \matrixsize@=\count96
- loaded) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyframe.tex  Xy-pic option: Frame and Bracket extension v.3.14 loaded) Xy-pic pdf driver: `frame' extension support (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xypdf-fr.tex (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xycurve.tex  Xy-pic option: Curve and Spline extension v.3.12 curve,
+ loaded)
+(/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyframe.tex
+ Xy-pic option: Frame and Bracket extension v.3.14 loaded)
+Xy-pic pdf driver: `frame' extension support
+(/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xypdf-fr.tex
+(/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xycurve.tex
+ Xy-pic option: Curve and Spline extension v.3.12 curve,
 \crv@cnt@=\count97
 \crvpts@=\toks20
 \splinebox@=\box30
@@ -97,9 +116,19 @@ Package: xy 2013/10/06 Xy-pic version 3.8.9
 \splinelength@=\dimen134
  circles,
 \L@=\dimen135
- loaded) Xy-pic pdf driver: `curve' extension support (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xypdf-cu.tex loaded) loaded) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyarrow.tex  Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyarc.tex  Xy-pic option: Circle, Ellipse, Arc feature v.3.8 circles, ellipses, elliptical arcs, loaded)) (/usr/local/texlive/2019/texmf-dist/tex/latex/lipsum/lipsum.sty (/usr/local/texlive/2019/texmf-dist/tex/latex/l3kernel/expl3.sty
+ loaded)
+Xy-pic pdf driver: `curve' extension support
+(/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xypdf-cu.tex loaded)
+loaded) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyarrow.tex
+ Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded)
+(/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyarc.tex
+ Xy-pic option: Circle, Ellipse, Arc feature v.3.8 circles, ellipses,
+elliptical arcs, loaded))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/lipsum/lipsum.sty
+(/usr/local/texlive/2019/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2019-05-07 L3 programming layer (loader) 
- (/usr/local/texlive/2019/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/l3kernel/expl3-code.tex
 Package: expl3 2019-05-07 L3 programming layer (code)
 \c_max_int=\count98
 \l_tmpa_int=\count99
@@ -250,11 +279,13 @@ Package: expl3 2019-05-07 L3 programming layer (code)
 \l__seq_internal_a_int=\count181
 \l__seq_internal_b_int=\count182
 \c__deprecation_minus_one=\count183
-) (/usr/local/texlive/2019/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
 File: l3pdfmode.def 2019-04-06 v L3 Experimental driver: PDF mode
 \l__driver_color_stack_int=\count184
 \l__driver_pdf_tmp_box=\box49
-)) (/usr/local/texlive/2019/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2019-05-03 L3 Experimental document command parser
 \l__xparse_current_arg_int=\count185
 \g__xparse_grabber_int=\count186
@@ -262,9 +293,11 @@ Package: xparse 2019-05-03 L3 Experimental document command parser
 \l__xparse_v_nesting_int=\count188
 )
 Package: lipsum 2019/01/02 v2.2 150 paragraphs of Lorem Ipsum dummy text
- (/usr/local/texlive/2019/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex
 File: lipsum.ltd.tex 2019/01/02 v2.2 The Lorem ipsum dummy text
-)) (/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_8.aux)
+))
+(./circuit_8.aux)
 \openout1 = `circuit_8.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
@@ -286,17 +319,21 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 Package xypdf Info: Line width: 0.39998pt on input line 5.
  <xymatrix 3x2 318> [1
 
-{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (/Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_8.aux) ) 
+{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./circ
+uit_8.aux) ) 
 Here is how much of TeX's memory you used:
- 12446 strings out of 492616
- 226056 string characters out of 6129482
- 555982 words of memory out of 5000000
+ 12445 strings out of 492616
+ 225441 string characters out of 6129482
+ 554179 words of memory out of 5000000
  16376 multiletter control sequences out of 15000+600000
  533211 words of font info for 29 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,24n,63p,1492b,986s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on /Users/marcusedwards/Documents/Projects/circuit-parsers/examples/gen/circuit_8.pdf (1 page, 33898 bytes).
+ 40i,24n,63p,1423b,986s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y10.pfb>
+Output written on circuit_8.pdf (1 page, 33855 bytes).
 PDF statistics:
  20 PDF objects out of 1000 (max. 8388607)
  13 compressed objects within 1 object stream

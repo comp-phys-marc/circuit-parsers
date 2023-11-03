@@ -129,8 +129,7 @@ def generate_pdfs(circuit_depth=2, qubits=2, folder="examples/gen"):
                 i = 0
 
         builder.print_tex_file(f"{folder}/circuit_{num}.tex")
-        # TODO: automate this step. For now use PDfLaTeX and LaTeX Workshop.
-        input("Have you converted the .tex to a .pdf? If so, press a key.")
+        os.system(f"cd {folder} && pdflatex circuit_{num}.tex")
         if not pathlib.Path(f"{folder}/{num}").is_dir():
             os.mkdir(f"{folder}/{num}")
             convert_pdf_to_image(f"{folder}/circuit_{num}.pdf", f"{folder}/{num}/circuit_{num}.jpg")
