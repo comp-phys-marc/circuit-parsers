@@ -47,7 +47,7 @@ class Gate(object):
     wire: Optional[str] = None
 
     def __hash__(self):
-        if target is None:
+        if self.target is None:
             return int.from_bytes(f'{self.name}{self.source}{self.source_index}{self.index}'.encode('utf-8'), 'little')
         else:
             return int.from_bytes(
