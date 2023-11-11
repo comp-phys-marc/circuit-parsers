@@ -195,7 +195,7 @@ class Builder:
         Returns a random paragraph of text in LaTeX.
         :return: the command for a random paragraph of text.
         """
-        n = random.randint(1, 10)
+        n = random.randint(10, 50)
         return f'\n\\lipsum[{n}-{n}]\n'
 
     def tex_cx_source(self,  direction):

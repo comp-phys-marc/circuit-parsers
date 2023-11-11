@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  3 NOV 2023 11:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  10 NOV 2023 16:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -297,7 +297,7 @@ Package: lipsum 2019/01/02 v2.2 150 paragraphs of Lorem Ipsum dummy text
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex
 File: lipsum.ltd.tex 2019/01/02 v2.2 The Lorem ipsum dummy text
 ))
-No file circuit_76.aux.
+(./circuit_76.aux)
 \openout1 = `circuit_76.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
@@ -317,14 +317,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 5.
 Package xypdf Info: Line width: 0.39998pt on input line 5.
-<xymatrix 3x2 318> [1
+ <xymatrix 3x2 318> [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./circ
 uit_76.aux) ) 
 Here is how much of TeX's memory you used:
- 12443 strings out of 492616
- 225420 string characters out of 6129482
- 555449 words of memory out of 5000000
+ 12445 strings out of 492616
+ 225450 string characters out of 6129482
+ 550280 words of memory out of 5000000
  16376 multiletter control sequences out of 15000+600000
  533211 words of font info for 29 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -334,7 +334,7 @@ Here is how much of TeX's memory you used:
 cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y7.pfb>
-Output written on circuit_76.pdf (1 page, 40254 bytes).
+Output written on circuit_76.pdf (1 page, 40278 bytes).
 PDF statistics:
  24 PDF objects out of 1000 (max. 8388607)
  16 compressed objects within 1 object stream

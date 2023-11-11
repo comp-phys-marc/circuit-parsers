@@ -64,7 +64,7 @@ model.compile(
 )
 model.summary()
 
-epochs = 200
+epochs = 50
 history = model.fit(
     train_ds,
     validation_data=val_ds,
