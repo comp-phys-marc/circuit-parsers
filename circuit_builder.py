@@ -256,6 +256,7 @@ class Builder:
         :param qubit: The target qubit.
         :return: The full qasm after the operation.
         """
+        self.tex_circuit += ' & \\qw'
         return self
 
     def h(self, qubit):

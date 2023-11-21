@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  10 NOV 2023 16:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  21 NOV 2023 09:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -317,14 +317,20 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 5.
 Package xypdf Info: Line width: 0.39998pt on input line 5.
- <xymatrix 3x2 318> [1
+
+Overfull \hbox (3.18568pt too wide) in paragraph at lines 7--7
+[]\OT1/cmr/m/n/10 Nulla non mau-ris vi-tae wisi po-suere con-va-l-lis. Sed eu n
+ulla nec eros scelerisque
+ []
+
+<xymatrix 3x2 318> [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./circ
 uit_57.aux) ) 
 Here is how much of TeX's memory you used:
  12445 strings out of 492616
  225450 string characters out of 6129482
- 544528 words of memory out of 5000000
+ 545021 words of memory out of 5000000
  16376 multiletter control sequences out of 15000+600000
  533211 words of font info for 29 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -334,7 +340,7 @@ Here is how much of TeX's memory you used:
 cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y7.pfb>
-Output written on circuit_57.pdf (1 page, 41146 bytes).
+Output written on circuit_57.pdf (1 page, 41212 bytes).
 PDF statistics:
  24 PDF objects out of 1000 (max. 8388607)
  16 compressed objects within 1 object stream
