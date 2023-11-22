@@ -113,14 +113,35 @@ def generate_pdfs(circuit_depth=2, qubits=2, folder="examples/gen"):
     for num, circuit in enumerate(circuits):
         builder = Builder(pad=False)
         wire = 0
+        seen_cxs = []
         i = 0
         while wire < len(circuit) and i < len(circuit[0]):
             gate = circuit[wire][i]
             if 'cx' not in gate['name']:
                 getattr(builder, gate['name'])(wire)
             elif gate['source'] == wire:
+
+                # This block only works for depth 2 circuits
+                if i == 0 and i not in seen_cxs:
+                    builder.cx(gate['source'], gate['target'])
+                    seen_cxs.append(i)
+                elif i == 1 and i not in seen_cxs:
+                    seen_cxs.append(i)
+                elif i == 1 and i in seen_cxs:
+                    builder.cx(gate['source'], gate['target'])
+
                 builder.tex_cx_source('up' if gate['source'] < gate['target'] else 'down')
             elif gate['target'] == wire:
+
+                # This block only works for depth 2 circuits
+                if i == 0 and i not in seen_cxs:
+                    builder.cx(gate['source'], gate['target'])
+                    seen_cxs.append(i)
+                elif i == 1 and i not in seen_cxs:
+                    seen_cxs.append(i)
+                elif i == 1 and i in seen_cxs:
+                    builder.cx(gate['source'], gate['target'])
+
                 builder.tex_cx_target()
             i += 1
             if i >= len(circuit[0]):
@@ -128,6 +149,7 @@ def generate_pdfs(circuit_depth=2, qubits=2, folder="examples/gen"):
                 wire += 1
                 i = 0
 
+        builder.print_qasm_file(f"{folder}/circuit_{num}.qasm")
         builder.print_tex_file(f"{folder}/circuit_{num}.tex")
         os.system(f"cd {folder} && pdflatex circuit_{num}.tex")
         if not pathlib.Path(f"{folder}/{num}").is_dir():
