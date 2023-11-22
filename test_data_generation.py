@@ -111,7 +111,7 @@ def generate_pdfs(circuit_depth=2, qubits=2, folder="examples/gen"):
                     circuits.append(circuit)
 
     for num, circuit in enumerate(circuits):
-        builder = Builder(pad=True)
+        builder = Builder(pad=False)
         wire = 0
         i = 0
         while wire < len(circuit) and i < len(circuit[0]):

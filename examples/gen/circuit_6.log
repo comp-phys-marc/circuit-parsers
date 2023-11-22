@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  21 NOV 2023 09:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  21 NOV 2023 13:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -123,217 +123,43 @@ loaded) (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyarrow.tex
  Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded)
 (/usr/local/texlive/2019/texmf-dist/tex/generic/xypic/xyarc.tex
  Xy-pic option: Circle, Ellipse, Arc feature v.3.8 circles, ellipses,
-elliptical arcs, loaded))
-(/usr/local/texlive/2019/texmf-dist/tex/latex/lipsum/lipsum.sty
-(/usr/local/texlive/2019/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2019-05-07 L3 programming layer (loader) 
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/l3kernel/expl3-code.tex
-Package: expl3 2019-05-07 L3 programming layer (code)
-\c_max_int=\count98
-\l_tmpa_int=\count99
-\l_tmpb_int=\count100
-\g_tmpa_int=\count101
-\g_tmpb_int=\count102
-\g__kernel_prg_map_int=\count103
-\c__ior_term_ior=\count104
-\c_log_iow=\count105
-\l_iow_line_count_int=\count106
-\l__iow_line_target_int=\count107
-\l__iow_one_indent_int=\count108
-\l__iow_indent_int=\count109
-\c_zero_dim=\dimen136
-\c_max_dim=\dimen137
-\l_tmpa_dim=\dimen138
-\l_tmpb_dim=\dimen139
-\g_tmpa_dim=\dimen140
-\g_tmpb_dim=\dimen141
-\c_zero_skip=\skip43
-\c_max_skip=\skip44
-\l_tmpa_skip=\skip45
-\l_tmpb_skip=\skip46
-\g_tmpa_skip=\skip47
-\g_tmpb_skip=\skip48
-\c_zero_muskip=\muskip10
-\c_max_muskip=\muskip11
-\l_tmpa_muskip=\muskip12
-\l_tmpb_muskip=\muskip13
-\g_tmpa_muskip=\muskip14
-\g_tmpb_muskip=\muskip15
-\l_keys_choice_int=\count110
-\l__intarray_loop_int=\count111
-\c__intarray_sp_dim=\dimen142
-\g__intarray_font_int=\count112
-\c__fp_leading_shift_int=\count113
-\c__fp_middle_shift_int=\count114
-\c__fp_trailing_shift_int=\count115
-\c__fp_big_leading_shift_int=\count116
-\c__fp_big_middle_shift_int=\count117
-\c__fp_big_trailing_shift_int=\count118
-\c__fp_Bigg_leading_shift_int=\count119
-\c__fp_Bigg_middle_shift_int=\count120
-\c__fp_Bigg_trailing_shift_int=\count121
-\c__kernel_randint_max_int=\count122
-\g__fp_array_int=\count123
-\l__fp_array_loop_int=\count124
-\l__sort_length_int=\count125
-\l__sort_min_int=\count126
-\l__sort_top_int=\count127
-\l__sort_max_int=\count128
-\l__sort_true_max_int=\count129
-\l__sort_block_int=\count130
-\l__sort_begin_int=\count131
-\l__sort_end_int=\count132
-\l__sort_A_int=\count133
-\l__sort_B_int=\count134
-\l__sort_C_int=\count135
-\l__tl_analysis_normal_int=\count136
-\l__tl_analysis_index_int=\count137
-\l__tl_analysis_nesting_int=\count138
-\l__tl_analysis_type_int=\count139
-\l__regex_internal_a_int=\count140
-\l__regex_internal_b_int=\count141
-\l__regex_internal_c_int=\count142
-\l__regex_balance_int=\count143
-\l__regex_group_level_int=\count144
-\l__regex_mode_int=\count145
-\c__regex_cs_in_class_mode_int=\count146
-\c__regex_cs_mode_int=\count147
-\l__regex_catcodes_int=\count148
-\l__regex_default_catcodes_int=\count149
-\c__regex_catcode_D_int=\count150
-\c__regex_catcode_S_int=\count151
-\c__regex_catcode_L_int=\count152
-\c__regex_catcode_O_int=\count153
-\c__regex_catcode_A_int=\count154
-\c__regex_all_catcodes_int=\count155
-\l__regex_show_lines_int=\count156
-\l__regex_min_state_int=\count157
-\l__regex_max_state_int=\count158
-\l__regex_left_state_int=\count159
-\l__regex_right_state_int=\count160
-\l__regex_capturing_group_int=\count161
-\l__regex_min_pos_int=\count162
-\l__regex_max_pos_int=\count163
-\l__regex_curr_pos_int=\count164
-\l__regex_start_pos_int=\count165
-\l__regex_success_pos_int=\count166
-\l__regex_curr_char_int=\count167
-\l__regex_curr_catcode_int=\count168
-\l__regex_last_char_int=\count169
-\l__regex_case_changed_char_int=\count170
-\l__regex_curr_state_int=\count171
-\l__regex_step_int=\count172
-\l__regex_min_active_int=\count173
-\l__regex_max_active_int=\count174
-\l__regex_replacement_csnames_int=\count175
-\l__regex_match_count_int=\count176
-\l__regex_min_submatch_int=\count177
-\l__regex_submatch_int=\count178
-\l__regex_zeroth_submatch_int=\count179
-\g__regex_trace_regex_int=\count180
-\c_empty_box=\box31
-\l_tmpa_box=\box32
-\l_tmpb_box=\box33
-\g_tmpa_box=\box34
-\g_tmpb_box=\box35
-\l__box_top_dim=\dimen143
-\l__box_bottom_dim=\dimen144
-\l__box_left_dim=\dimen145
-\l__box_right_dim=\dimen146
-\l__box_top_new_dim=\dimen147
-\l__box_bottom_new_dim=\dimen148
-\l__box_left_new_dim=\dimen149
-\l__box_right_new_dim=\dimen150
-\l__box_internal_box=\box36
-\l__coffin_internal_box=\box37
-\l__coffin_internal_dim=\dimen151
-\l__coffin_offset_x_dim=\dimen152
-\l__coffin_offset_y_dim=\dimen153
-\l__coffin_x_dim=\dimen154
-\l__coffin_y_dim=\dimen155
-\l__coffin_x_prime_dim=\dimen156
-\l__coffin_y_prime_dim=\dimen157
-\c_empty_coffin=\box38
-\l__coffin_aligned_coffin=\box39
-\l__coffin_aligned_internal_coffin=\box40
-\l_tmpa_coffin=\box41
-\l_tmpb_coffin=\box42
-\g_tmpa_coffin=\box43
-\g_tmpb_coffin=\box44
-\l__coffin_bounding_shift_dim=\dimen158
-\l__coffin_left_corner_dim=\dimen159
-\l__coffin_right_corner_dim=\dimen160
-\l__coffin_bottom_corner_dim=\dimen161
-\l__coffin_top_corner_dim=\dimen162
-\l__coffin_scaled_total_height_dim=\dimen163
-\l__coffin_scaled_width_dim=\dimen164
-\c__coffin_empty_coffin=\box45
-\l__coffin_display_coffin=\box46
-\l__coffin_display_coord_coffin=\box47
-\l__coffin_display_pole_coffin=\box48
-\l__coffin_display_offset_dim=\dimen165
-\l__coffin_display_x_dim=\dimen166
-\l__coffin_display_y_dim=\dimen167
-\g__file_internal_ior=\read2
-\l__seq_internal_a_int=\count181
-\l__seq_internal_b_int=\count182
-\c__deprecation_minus_one=\count183
-)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
-File: l3pdfmode.def 2019-04-06 v L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count184
-\l__driver_pdf_tmp_box=\box49
-))
-(/usr/local/texlive/2019/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2019-05-03 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count185
-\g__xparse_grabber_int=\count186
-\l__xparse_m_args_int=\count187
-\l__xparse_v_nesting_int=\count188
-)
-Package: lipsum 2019/01/02 v2.2 150 paragraphs of Lorem Ipsum dummy text
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex
-File: lipsum.ltd.tex 2019/01/02 v2.2 The Lorem ipsum dummy text
-))
-(./circuit_6.aux)
+elliptical arcs, loaded)) (./circuit_6.aux)
 \openout1 = `circuit_6.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 5.
+(Font)              <7> on input line 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 5.
-Package xypdf Info: Line width: 0.39998pt on input line 5.
+(Font)              <5> on input line 4.
+Package xypdf Info: Line width: 0.39998pt on input line 4.
  <xymatrix 3x2 318> [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./circ
 uit_6.aux) ) 
 Here is how much of TeX's memory you used:
- 12445 strings out of 492616
- 225441 string characters out of 6129482
- 543266 words of memory out of 5000000
- 16376 multiletter control sequences out of 15000+600000
- 533211 words of font info for 29 fonts, out of 8000000 for 9000
+ 2732 strings out of 492616
+ 31939 string characters out of 6129482
+ 140162 words of memory out of 5000000
+ 6689 multiletter control sequences out of 15000+600000
+ 4513 words of font info for 19 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,24n,63p,1423b,986s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,22n,42p,1420b,875s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y10.pfb>
-Output written on circuit_6.pdf (1 page, 33754 bytes).
+Output written on circuit_6.pdf (1 page, 23475 bytes).
 PDF statistics:
  20 PDF objects out of 1000 (max. 8388607)
  13 compressed objects within 1 object stream
