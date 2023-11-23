@@ -1,5 +1,7 @@
 import os
 import pathlib
+from PIL import Image
+import os.path
 
 from qcircuit_parse import parse_circuit, Gate, GATES
 from circuit_builder import Builder
@@ -162,5 +164,18 @@ def generate_pdfs(circuit_depth=2, qubits=2, folder="examples/gen"):
             convert_pdf_to_image(f"{folder}/circuit_{num}.pdf", f"{folder}/{num}/circuit_{num + i}.jpg")
 
 
+def crop():
+    for item in os.listdir("examples/gen"):
+        if os.path.isdir(os.path.join("examples/gen", item)):
+            for file in os.listdir(os.path.join("examples/gen", item)):
+                fullpath = os.path.join(os.path.join("examples/gen", item), file)
+                if os.path.isfile(fullpath):
+                    im = Image.open(fullpath)
+                    f, e = os.path.splitext(fullpath)
+                    imCrop = im.crop((900, 850, 1500, 1250))
+                    imCrop.save(fullpath)
+
+
 if __name__ == "__main__":
     generate_pdfs()
+    crop()

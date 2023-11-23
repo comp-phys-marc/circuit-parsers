@@ -38,6 +38,17 @@ val_ds = tf.keras.utils.image_dataset_from_directory(
 )
 
 class_names = train_ds.class_names
+
+plt.figure(figsize=(50, 50))
+for images, labels in train_ds.take(1):
+  for i in range(9):
+    ax = plt.subplot(3, 3, i + 1)
+    plt.imshow(images[i].numpy().astype("uint8"))
+    plt.axis("off")
+
+plt.show()
+
+class_names = train_ds.class_names
 print(class_names)
 
 num_classes = len(class_names)
@@ -64,7 +75,7 @@ model.compile(
 )
 model.summary()
 
-epochs = 200
+epochs = 10
 history = model.fit(
     train_ds,
     validation_data=val_ds,
