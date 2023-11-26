@@ -109,3 +109,10 @@ plt.title('Training and Validation Loss')
 plt.show()
 
 tf.saved_model.save(model, f'saved_models/trained_model')
+
+# convert the model
+converter = tf.lite.TFLiteConverter.from_keras_model(model)
+tflite_model = converter.convert()
+# save the model
+with open('model.tflite', 'wb') as f:
+    f.write(tflite_model)

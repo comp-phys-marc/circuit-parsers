@@ -2,6 +2,7 @@ import tensorflow as tf
 import numpy as np
 import getopt
 import sys
+import matplotlib.pyplot as plt
 import os
 
 
@@ -11,16 +12,6 @@ class ModelNotFoundException(BaseException):
 
 def get_saved_model():
     try:
-        # get file dir
-        dir_path = os.path.dirname(os.path.realpath(__file__))
-        # load model
-        model = tf.saved_model.load(f'{dir_path}/saved_models/trained_model')
-        # convert the model
-        converter = tf.lite.TFLiteConverter.from_keras_model(model)
-        tflite_model = converter.convert()
-        # save the model
-        with open('model.tflite', 'wb') as f:
-            f.write(tflite_model)
         interpreter = tf.lite.Interpreter(model_path='model.tflite')
         classify_lite = interpreter.get_signature_runner('serving_default')
         return classify_lite
@@ -28,17 +19,29 @@ def get_saved_model():
         raise ModelNotFoundException(str(e))
 
 
-def preprocess_image(image_path, image_size=180):
-    img = tf.keras.utils.load_img(image_path, target_size=(image_size, image_size))
-    img_array = tf.keras.utils.img_to_array(img)
-    return tf.expand_dims(img_array, 0)  # Create a batch
+def preprocess_image(image_path):
+    # read an image file
+    image = tf.io.read_file(image_path)
+    # turn image into numerical tensors with RGB
+    image = tf.image.decode_jpeg(image, channels=3)
+    # resize image
+    image = tf.image.resize(image, size=[400, 600])
+
+    # uncomment for debugging
+    # plt.figure(figsize=(10, 10))
+    # plt.imshow(image)
+    # plt.axis("off")
+    #
+    # plt.show()
+
+    return image[None, :, :]  # Create a batch
 
 
 HELP_STRING = "Usage: python tool.py --input_file /path/to/circuit.jpg"
 
 
 def main(argv):
-    input_file = 'examples/gen/0/circuit_0.jpg'
+    input_file = 'examples/gen/88/circuit_88.jpg'
 
     try:
         opts, args = getopt.getopt(
@@ -55,7 +58,7 @@ def main(argv):
         if opt in ["-h", "--help"]:
             print(HELP_STRING)
             sys.exit()
-        elif opt in ["-i", "--input_files"]:
+        elif opt in ["-i", "--input_file"]:
             input_file = arg
 
     if input_file is not None:
