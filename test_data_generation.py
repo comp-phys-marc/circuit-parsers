@@ -166,14 +166,14 @@ def generate_pdfs(circuit_depth=2, qubits=2, folder="examples/gen"):
 
 def crop():
     for item in os.listdir("examples/gen"):
-        if os.path.isdir(os.path.join("examples/gen", item)):
-            for file in os.listdir(os.path.join("examples/gen", item)):
-                fullpath = os.path.join(os.path.join("examples/gen", item), file)
-                if os.path.isfile(fullpath):
-                    im = Image.open(fullpath)
-                    f, e = os.path.splitext(fullpath)
-                    imCrop = im.crop((900, 850, 1500, 1250))
-                    imCrop.save(fullpath)
+        item_path = os.path.join("examples/gen", item)
+        if os.path.isdir(item_path):
+            for file in os.listdir(item_path):
+                full_path = os.path.join(item_path, file)
+                if os.path.isfile(full_path):
+                    im = Image.open(full_path)
+                    im_crop = im.crop((900, 850, 1500, 1250))
+                    im_crop.save(full_path)
 
 
 if __name__ == "__main__":
