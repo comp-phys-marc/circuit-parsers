@@ -1,11 +1,8 @@
 import matplotlib.pyplot as plt
-import numpy as np
-import os
 import PIL
 import tensorflow as tf
 import pathlib
 
-from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.models import Sequential
 
@@ -23,7 +20,7 @@ train_ds = tf.keras.utils.image_dataset_from_directory(
     validation_split=0.2,
     subset="training",
     seed=123,
-    image_size=(180, 180),
+    image_size=(400, 600),
     batch_size=32
 )
 
@@ -33,7 +30,7 @@ val_ds = tf.keras.utils.image_dataset_from_directory(
     validation_split=0.2,
     subset="validation",
     seed=123,
-    image_size=(180, 180),
+    image_size=(400, 600),
     batch_size=32
 )
 
@@ -56,7 +53,7 @@ num_classes = len(class_names)
 # TODO: solve for model that is well suited to learning quantum circuits
 
 model = Sequential([
-    layers.Rescaling(1./255, input_shape=(180, 180, 3)),
+    layers.Rescaling(1./255, input_shape=(400, 600, 3)),
     layers.Conv2D(16, 3, padding='same', activation='relu'),
     layers.MaxPooling2D(),
     layers.Conv2D(32, 3, padding='same', activation='relu'),
