@@ -84,57 +84,72 @@ class Builder:
             self.qasm = self.qasm + f'\nbarrier {self.symbol};'
         return self
 
-    def custom_gate(self, name, qubit):
+    def custom_gate(self, name, qubit, qasm_only=False, tex_only=False):
         """
         Registers a custom gate on the target qubit.
 
-        :param qubit: The target qubit
+        :param qubit: The target qubit.
+        :param qasm_only: Whether to only update the circuit qasm.
+        :param tex_only: Whether to only update the circuit LaTeX.
         :return: The full wasm after the operation.
         """
-
-        self.custom_gates += f'gate {name} qargs' + '\n{\n//TODO: replace me!\nU(0,0,0) qargs;\n}\n'
         print("{1} ({0})".format(qubit, name))
-        self.qasm = self.qasm + f'\n{name} {self.symbol}[{qubit}];'
-        self.tex_circuit += ' & \\gate{{0}}'.format(name)
+        if not tex_only:
+            self.custom_gates += f'gate {name} qargs' + '\n{\n//TODO: replace me!\nU(0,0,0) qargs;\n}\n'
+            self.qasm = self.qasm + f'\n{name} {self.symbol}[{qubit}];'
+        if not qasm_only:
+            self.tex_circuit += ' & \\gate{{0}}'.format(name)
         return self
 
-    def x(self, qubit):
+    def x(self, qubit, qasm_only=False, tex_only=False):
         """
         Performs a Pauli X gate on the target qubit.
 
         :param qubit: The target qubit.
+        :param qasm_only: Whether to only update the circuit qasm.
+        :param tex_only: Whether to only update the circuit LaTeX.
         :return: The full qasm after the operation.
         """
         print("x ({0})".format(qubit))
-        self.qasm = self.qasm + f'\nx {self.symbol}[{qubit}];'
-        self.tex_circuit += ' & \\gate{X}'
+        if not tex_only:
+            self.qasm = self.qasm + f'\nx {self.symbol}[{qubit}];'
+        if not qasm_only:
+            self.tex_circuit += ' & \\gate{X}'
         return self
 
-    def y(self, qubit):
+    def y(self, qubit, qasm_only=False, tex_only=False):
         """
         Performs a Pauli Y gate on the target qubit.
 
         :param qubit: The target qubit.
+        :param qasm_only: Whether to only update the circuit qasm.
+        :param tex_only: Whether to only update the circuit LaTeX.
         :return: The full qasm after the operation.
         """
         print("y ({0})".format(qubit))
-        self.qasm = self.qasm + f'\ny {self.symbol}[{qubit}];'
-        self.tex_circuit += ' & \\gate{Y}'
+        if not tex_only:
+            self.qasm = self.qasm + f'\ny {self.symbol}[{qubit}];'
+        if not qasm_only:
+            self.tex_circuit += ' & \\gate{Y}'
         return self
 
-    def z(self, qubit):
+    def z(self, qubit, qasm_only=False, tex_only=False):
         """
         Performs a Pauli Z gate on the target qubit.
 
         :param qubit: The target qubit.
+        :param qasm_only: Whether to only update the circuit qasm.
+        :param tex_only: Whether to only update the circuit LaTeX.
         :return: The full qasm after the operation.
         """
         print("z ({0})".format(qubit))
-        self.qasm = self.qasm + f'\nz {self.symbol}[{qubit}];'
-        self.tex_circuit += ' & \\gate{Z}'
+        if not tex_only:
+            self.qasm = self.qasm + f'\nz {self.symbol}[{qubit}];'
+        if not qasm_only:
+            self.tex_circuit += ' & \\gate{Z}'
         return self
 
-    def u1(self, lamb, qubit):
+    def u1(self, lamb, qubit, qasm_only=False, tex_only=False):
         """
         A single parameter single qubit phase gate with zero duration:
 
@@ -142,14 +157,18 @@ class Builder:
 
         :param lamb: The phase parameter.
         :param qubit: The target qubit.
+        :param qasm_only: Whether to only update the circuit qasm.
+        :param tex_only: Whether to only update the circuit LaTeX.
         :return: The full qasm after the operation.
         """
         print("u1({1}) ({0})".format(qubit, lamb))
-        self.qasm = self.qasm + f'\nu1({lamb}) {self.symbol}[{qubit}];'
-        self.tex_circuit += ' & \\gate{U1({0})}'.format(lamb)
+        if not tex_only:
+            self.qasm = self.qasm + f'\nu1({lamb}) {self.symbol}[{qubit}];'
+        if not qasm_only:
+            self.tex_circuit += ' & \\gate{U1({0})}'.format(lamb)
         return self
 
-    def u3(self, theta, phi, lamb, qubit):
+    def u3(self, theta, phi, lamb, qubit, qasm_only=False, tex_only=False):
         """
         A three parameter single qubit gate:
 
@@ -159,35 +178,47 @@ class Builder:
         :param phi: The second parameter.
         :param lamb: The thrid parameter.
         :param qubit: The target qubit.
+        :param qasm_only: Whether to only update the circuit qasm.
+        :param tex_only: Whether to only update the circuit LaTeX.
         :return: The full qasm after the operation.
         """
         print("u3({1}, {2}, {3}) ({0})".format(qubit, theta, phi, lamb))
-        self.qasm = self.qasm + f'\nu3({theta},{phi},{lamb}) {self.symbol}[{qubit}];'
-        self.tex_circuit += ' & \\gate{U3({0}, {1}, {2})}'.format(theta, phi, lamb)
+        if not tex_only:
+            self.qasm = self.qasm + f'\nu3({theta},{phi},{lamb}) {self.symbol}[{qubit}];'
+        if not qasm_only:
+            self.tex_circuit += ' & \\gate{U3({0}, {1}, {2})}'.format(theta, phi, lamb)
         return self
 
-    def s(self, qubit):
+    def s(self, qubit, qasm_only=False, tex_only=False):
         """
         Performs an S phase shift gate on the target qubit.
 
         :param qubit: The target qubit.
+        :param qasm_only: Whether to only update the circuit qasm.
+        :param tex_only: Whether to only update the circuit LaTeX.
         :return: The full qasm after the operation.
         """
         print("s ({0})".format(qubit))
-        self.qasm = self.qasm + f'\ns {self.symbol}[{qubit}];'
-        self.tex_circuit += ' & \\gate{S}'
+        if not tex_only:
+            self.qasm = self.qasm + f'\ns {self.symbol}[{qubit}];'
+        if not qasm_only:
+            self.tex_circuit += ' & \\gate{S}'
         return self
 
-    def sdg(self, qubit):
+    def sdg(self, qubit, qasm_only=False, tex_only=False):
         """
         Performs an S dagger phase shift gate on the target qubit.
 
         :param qubit: The target qubit.
+        :param qasm_only: Whether to only update the circuit qasm.
+        :param tex_only: Whether to only update the circuit LaTeX.
         :return: The full qasm after the operation.
         """
         print("sdg ({0})".format(qubit))
-        self.qasm = self.qasm + f'\nsdg {self.symbol}[{qubit}];'
-        self.tex_circuit += ' & \\gate{S^\\dagger}'
+        if not tex_only:
+            self.qasm = self.qasm + f'\nsdg {self.symbol}[{qubit}];'
+        if not qasm_only:
+            self.tex_circuit += ' & \\gate{S^\\dagger}'
         return self
 
     def tex_random_lipsum(self):
@@ -195,7 +226,7 @@ class Builder:
         Returns a random paragraph of text in LaTeX.
         :return: the command for a random paragraph of text.
         """
-        n = random.randint(10, 50)
+        n = random.randint(1, 50)
         return f'\n\\lipsum[{n}-{n}]\n'
 
     def tex_cx_source(self,  direction):
@@ -249,26 +280,33 @@ class Builder:
         self.qasm = self.qasm + f'\nccx {self.symbol}[{source_one}], {self.symbol}[{source_two}], {self.symbol}[{target}];'
         return self
 
-    def I(self, qubit):
+    def I(self, qubit, qasm_only=False, tex_only=False):
         """
         Performs an identity on the target qubit.
 
         :param qubit: The target qubit.
+        :param qasm_only: Whether to only update the circuit qasm.
+        :param tex_only: Whether to only update the circuit LaTeX.
         :return: The full qasm after the operation.
         """
-        self.tex_circuit += ' & \\qw'
+        if not qasm_only:
+            self.tex_circuit += ' & \\qw'
         return self
 
-    def h(self, qubit):
+    def h(self, qubit, qasm_only=False, tex_only=False):
         """
         Performs a Hadamard gate on the target qubit.
 
         :param qubit: The target qubit.
+        :param qasm_only: Whether to only update the circuit qasm.
+        :param tex_only: Whether to only update the circuit LaTeX.
         :return: The full qasm after the operation.
         """
         print("h ({0})".format(qubit))
-        self.qasm = self.qasm + f'\nh {self.symbol}[{qubit}];'
-        self.tex_circuit += ' & \\gate{H}'
+        if not tex_only:
+            self.qasm = self.qasm + f'\nh {self.symbol}[{qubit}];'
+        if not qasm_only:
+            self.tex_circuit += ' & \\gate{H}'
         return self
 
     def m(self, qubit):
@@ -310,4 +348,3 @@ class Builder:
         file.write(self.tex)
         file.flush()
         file.close()
-

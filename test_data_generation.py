@@ -15,6 +15,13 @@ from functools import reduce
 
 
 def permutations(iterable, r=None):
+    """
+    Iterably yields the r-sized permutations of the provided iterable.
+
+    :param iterable: The iterable whose elements to permute.
+    :param r: The size of the permutations.
+    :return: Yields the next permutation.
+    """
     pool = tuple(iterable)
     n = len(pool)
     r = n if r is None else r
@@ -135,42 +142,56 @@ def generate_pdfs(max_circuit_depth=3, qubits=2, folder="examples/gen"):
                             circuit = place_single_qubit_gate(Gate(name=permuted_gate), pg_index, circuit)
                         circuits.append(circuit)
 
+    builders = []
+
+    # depth first traversal for LaTeX generation
     for num, circuit in enumerate(circuits):
         builder = Builder(pad=False)
+        builders.append(builder)
         wire = 0
-        seen_cxs = []
         i = 0
         while wire < len(circuit) and i < len(circuit[0]):
             gate = circuit[wire][i]
             if 'cx' not in gate['name']:
-                getattr(builder, gate['name'])(wire)
+                getattr(builder, gate['name'])(wire, tex_only=True)
             elif gate['source'] == wire:
-
-                if i == 0 and i not in seen_cxs:
-                    builder.cx(gate['source'], gate['target'])
-                    seen_cxs.append(i)
-                elif i != 0 and i not in seen_cxs:
-                    seen_cxs.append(i)
-                elif i != 0 and i in seen_cxs:
-                    builder.cx(gate['source'], gate['target'])
-
                 builder.tex_cx_source('up' if gate['source'] < gate['target'] else 'down')
             elif gate['target'] == wire:
-
-                if i == 0 and i not in seen_cxs:
-                    builder.cx(gate['source'], gate['target'])
-                    seen_cxs.append(i)
-                elif i != 0 and i not in seen_cxs:
-                    seen_cxs.append(i)
-                elif i != 0 and i in seen_cxs:
-                    builder.cx(gate['source'], gate['target'])
-
                 builder.tex_cx_target()
             i += 1
             if i >= len(circuit[0]):
                 builder.new_tex_wire()
                 wire += 1
                 i = 0
+
+    # breadth first traversal for QASM generation
+    for num, circuit in enumerate(circuits):
+        builder = builders[num]
+
+        max_depth = 0
+        for w in range(len(circuit)):
+            if len(circuit[w]) > max_depth:
+                max_depth = len(circuit[w])
+
+        i = 0
+        while i < max_depth:
+            seen_cxs = []
+            wire = 0
+            while wire < len(circuit):
+                if i < len(circuit[wire]):
+                    gate = circuit[wire][i]
+                    if 'cx' not in gate['name']:
+                        getattr(builder, gate['name'])(wire, qasm_only=True)
+                    elif ((gate['source'] == wire or gate['target'] == wire)
+                          and (str(gate['source']) + ':' + str(gate['target']) not in seen_cxs)):
+                        seen_cxs.append(str(gate['source']) + ':' + str(gate['target']))
+                        builder.cx(gate['source'], gate['target'])
+                wire += 1
+            i += 1
+
+    # write files
+    for num, circuit in enumerate(circuits):
+        builder = builders[num]
 
         builder.print_qasm_file(f"{folder}/circuit_{num}.qasm")
         builder.print_tex_file(f"{folder}/circuit_{num}.tex")
@@ -183,7 +204,6 @@ def generate_pdfs(max_circuit_depth=3, qubits=2, folder="examples/gen"):
             while os.path.exists(f"{folder}/{num}/circuit_{num + i}.jpg"):
                 i += 1
             convert_pdf_to_image(f"{folder}/circuit_{num}.pdf", f"{folder}/{num}/circuit_{num + i}.jpg")
-
 
 def crop():
     for item in os.listdir("examples/gen"):
