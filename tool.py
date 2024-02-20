@@ -72,7 +72,7 @@ def main(argv):
         print('\x1b[34m Converting to QASM: \n \x1b[37m')
         dir_path = os.path.dirname(os.path.realpath(__file__))
         # while its a 1-1 mapping it isn’t exactly in-order numerically, rather its alphanumerically.
-        sorted_ints = map(lambda j: int(j), sorted([str(i) for i in range(1000)]))
+        sorted_ints = map(lambda j: int(j), sorted([str(i) for i in range(6000)]))
         class_map = {}
         for k, nt in enumerate(sorted_ints):
             class_map[str(k)] = nt
