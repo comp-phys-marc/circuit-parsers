@@ -1,10 +1,19 @@
 
 \documentclass{article}
 \usepackage{qcircuit}
+\usepackage{lipsum}  
 \begin{document}
+\lipsum[47-47]
+
+\begin{center}
+\begin{minipage}[c]{1\linewidth}
 \Qcircuit @C=1em @R=.7em {
  & \targ & \gate{S} \\ 
  & \ctrl{-1} & \gate{Z} \\ 
 }
+\end{minipage}
+\end{center}
+\lipsum[32-32]
+
 \end{document}
         

@@ -146,7 +146,7 @@ def generate_pdfs(max_circuit_depth=3, qubits=2, folder="examples/gen"):
 
     # depth first traversal for LaTeX generation
     for num, circuit in enumerate(circuits):
-        builder = Builder(pad=False)
+        builder = Builder(pad=True)
         builders.append(builder)
         wire = 0
         i = 0
@@ -205,7 +205,8 @@ def generate_pdfs(max_circuit_depth=3, qubits=2, folder="examples/gen"):
                 i += 1
             convert_pdf_to_image(f"{folder}/circuit_{num}.pdf", f"{folder}/{num}/circuit_{num + i}.jpg")
 
-def crop():
+
+def crop_no_lipsum():
     for item in os.listdir("examples/gen"):
         item_path = os.path.join("examples/gen", item)
         if os.path.isdir(item_path):
@@ -217,6 +218,18 @@ def crop():
                     im_crop.save(full_path)
 
 
+def crop_lipsum():
+    for item in os.listdir("examples/gen"):
+        item_path = os.path.join("examples/gen", item)
+        if os.path.isdir(item_path):
+            for file in os.listdir(item_path):
+                full_path = os.path.join(item_path, file)
+                if os.path.isfile(full_path):
+                    im = Image.open(full_path)
+                    im_crop = im.crop((1100, 1200, 3100, 2200))
+                    im_crop.save(full_path)
+
+
 if __name__ == "__main__":
-    generate_pdfs(max_circuit_depth=4)
-    crop()
+    generate_pdfs(max_circuit_depth=3)
+    crop_lipsum()

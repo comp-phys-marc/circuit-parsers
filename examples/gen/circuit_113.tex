@@ -1,10 +1,19 @@
 
 \documentclass{article}
 \usepackage{qcircuit}
+\usepackage{lipsum}  
 \begin{document}
+\lipsum[17-17]
+
+\begin{center}
+\begin{minipage}[c]{1\linewidth}
 \Qcircuit @C=1em @R=.7em {
  & \gate{S^\dagger} & \ctrl{1} \\ 
  & \qw & \targ \\ 
 }
+\end{minipage}
+\end{center}
+\lipsum[28-28]
+
 \end{document}
         
