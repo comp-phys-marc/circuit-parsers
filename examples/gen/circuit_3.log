@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.2)  4 MAR 2024 20:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.2)  9 MAR 2024 21:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -145,7 +145,7 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \l__lipsum_b_int=\count272
 
 (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
-No file circuit_3.aux.
+(./circuit_3.aux)
 \openout1 = `circuit_3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
@@ -168,6 +168,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 5.
 Package xypdf Info: Line width: 0.39998pt on input line 5.
 
+
 Package lipsum Warning: Unknown language 'latin'. Hyphenation patterns for
 (lipsum)                'english' will be used instead.
 
@@ -176,9 +177,9 @@ Package lipsum Warning: Unknown language 'latin'. Hyphenation patterns for
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 (./circuit_3.aux) ) 
 Here is how much of TeX's memory you used:
- 3479 strings out of 480247
- 50164 string characters out of 5896151
- 476077 words of memory out of 5000000
+ 3481 strings out of 480247
+ 50192 string characters out of 5896151
+ 476156 words of memory out of 5000000
  21441 multiletter control sequences out of 15000+600000
  470132 words of font info for 33 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -187,7 +188,7 @@ Here is how much of TeX's memory you used:
 m/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on circuit_3.pdf (1 page, 44501 bytes).
+Output written on circuit_3.pdf (1 page, 44833 bytes).
 PDF statistics:
  28 PDF objects out of 1000 (max. 8388607)
  16 compressed objects within 1 object stream

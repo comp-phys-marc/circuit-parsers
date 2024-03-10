@@ -231,5 +231,6 @@ def crop_lipsum():
 
 
 if __name__ == "__main__":
-    generate_pdfs(max_circuit_depth=3)
+    for i in range(5):
+        generate_pdfs(max_circuit_depth=3)
     crop_lipsum()
